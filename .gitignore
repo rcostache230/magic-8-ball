@@ -1,0 +1,25 @@
+# Private: Wi-Fi, API key, OTA password (copy secrets.yaml.example to secrets.yaml)
+secrets.yaml
+
+# ESPHome build output
+.esphome/
+
+# Your own clips and converted card files (copyrighted videos never go in the repo)
+media/
+
+# Local firmware backups
+backup/
+
+# Waveshare's CAD, drawings and schematic: download them yourself (see case/README.md)
+case/vendor/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Slicer output and logs (the 3MF is what you print)
+case/out/sliced/
+case/out/*.log
+
+.DS_Store

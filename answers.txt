@@ -1,0 +1,212 @@
+# Magic 8 Ball answers. One per line:   kind [mood] | line 1 | line 2 | line 3
+#
+# Three modes (double-tap the screen to switch):
+#   ORACLE   common (blue), rare (purple), legendary (gold), glitch (blue + glitch effect),
+#            secret:<egg> (only via an easter egg: hard, spam, night)
+#   CLASSIC  classic (the traditional 20, blue, no rarity)
+#   ROAST    roast (red, "ROASTED" tag, rimshot), roast:<egg> (hard, spam, night)
+#   mode:<oracle|classic|roast>  the card shown when switching to that mode
+#   skill    the SKILL ISSUE special (any mode): only by swiping up (see README)
+#   rickrolled  the card after the rickroll clip (Roast mode: swipe down, then shake)
+#
+# mood (yes, no or maybe) is required for common, rare, legendary, glitch, classic and
+# roast: swiping left rigs the next answer to a "yes" of the current mode, right to a "no".
+# Eggs can have several variants; each egg has a cooldown so it can't repeat back to back.
+#
+# Lines are drawn inside a point-down triangle, so each line must be narrower than the one
+# above it. tools/make_assets.py checks the fit and refuses answers that don't fit.
+# Allowed characters: A-Z 0-9 space ! ' ( ) + , - . / : ? % É …
+#
+# After editing:  python3 tools/make_assets.py   then   esphome run magic-8-ball.yaml
+
+# ======================================================================================
+# ORACLE
+# ======================================================================================
+# --- common: yes ---
+common yes | YES. | OBVIOUSLY.
+common yes | ABSOLUTELY.
+common yes | 100% | CONFIRMED
+common yes | THE STARS | SAY YES
+common yes | GO FOR IT
+common yes | DO IT. | NO REGRETS.
+common yes | BIG YES
+common yes | YEP. | TOTALLY.
+common yes | ALL GREEN | LIGHTS
+common yes | I SEE IT | HAPPENING
+common yes | SURE | THING
+common yes | SAY LESS. | YES.
+common yes | CERTIFIED | YES
+common yes | FULL SEND
+common yes | YES. BE | COOL ABOUT | IT
+
+# --- common: maybe ---
+common maybe | HMM… | MAYBE?
+common maybe | ASK AGAIN | AFTER | DINNER
+common maybe | THE FOG IS | TOO THICK
+common maybe | FOCUS. THEN | SHAKE | AGAIN
+common maybe | TOO EARLY | TO TELL
+common maybe | SIGNAL WEAK. | TRY AGAIN
+common maybe | 50/50. | FLIP A COIN
+common maybe | ASK ME | TOMORROW
+common maybe | STILL | THINKING…
+common maybe | ASK AFTER | HOMEWORK
+common maybe | DEPENDS ON | THE WIFI
+common maybe | REROLL
+common maybe | THE ORB IS | CONFUSED
+common maybe | MAYBE. | MAYBE NOT.
+common maybe | SLEEP | ON IT
+
+# --- common: no ---
+common no | NOPE.
+common no | NOT A | CHANCE
+common no | I WOULDN'T | BET ON IT
+common no | THE STARS | SAY NO
+common no | HARD PASS
+common no | NO. | JUST NO.
+common no | UNLIKELY. | VERY.
+common no | NOT | HAPPENING
+common no | NO WAY, | JOSÉ
+common no | NEGATIVE
+common no | NOT TODAY
+common no | ABSOLUTELY | NOT
+common no | THAT'S A NO | FROM ME
+common no | NOPE. | NEXT.
+
+# --- rare (purple) ---
+rare yes   | GG. YOU | WIN THIS ONE
+rare yes   | CRITICAL | HIT! YES!
+rare yes   | PLOT TWIST: | YES
+rare yes   | THE CODE | COMPILES. | YES.
+rare maybe | ASK YOUR | CAT
+rare no    | NOT EVEN IN | A PARALLEL | UNIVERSE
+rare maybe | MY LAWYER | SAYS NO | COMMENT
+rare maybe | RESPAWN AND | TRY AGAIN
+rare maybe | THAT'S A | SIDE QUEST
+rare maybe | THE UNIVERSE | SHRUGS
+rare no    | BRUH. | NO.
+rare maybe | ASK DAD. | SERIOUSLY.
+rare no    | GIT | GUD
+rare no    | NERF THAT | IDEA
+rare maybe | BUFFERING…
+rare yes   | +1000 AURA. | YES.
+rare no    | -500 AURA. | NO.
+rare yes   | NO CAP. | YES.
+rare maybe | LAG SPIKE. | ASK AGAIN
+rare maybe | LOADING | WISDOM… | 99%
+rare yes   | ACHIEVEMENT | UNLOCKED
+rare yes   | CHAT, IS | THIS REAL? | YES.
+
+# --- legendary (gold) ---
+legendary yes | DESTINY | SAYS YES
+legendary yes | THE PROPHECY | IS TRUE
+legendary yes | IT IS | WRITTEN
+legendary yes | MAIN | CHARACTER | ENERGY
+legendary yes | UNSTOPPABLE.
+legendary yes | LEGENDS | NEVER LOSE
+legendary yes | +9999 | AURA
+legendary yes | GOD TIER | YES
+legendary yes | CRITICAL | SUCCESS
+legendary yes | THE STARS | ALIGNED. | YES.
+legendary no  | DENIED BY | THE COSMOS
+legendary no  | FATE SAYS | ABSOLUTELY | NOT
+
+# --- glitch (blue, jitters and flickers on arrival) ---
+glitch maybe | ERROR 404: | FUTURE NOT | FOUND
+glitch maybe | SYSTEM | OVERLOAD. | ASK LATER
+glitch maybe | DIVIDE BY | ZERO. | REBOOTING
+glitch maybe | BLUE SCREEN | OF DESTINY
+glitch maybe | NULL | POINTER. | SORRY.
+glitch maybe | SEGFAULT. | ASK | AGAIN
+
+# --- secrets (easter eggs) ---
+secret:hard  | WHOA! | EASY THERE
+secret:hard  | I'M DIZZY. | ASK NICELY
+secret:hard  | I'M MAGIC, | NOT A | MARACA
+secret:hard  | STOP! YOU | SCRAMBLED | THE FUTURE
+secret:spam  | PATIENCE, | YOUNG ONE
+secret:spam  | SAME | QUESTION | AGAIN?
+secret:spam  | ASKING | AGAIN WON'T | HELP
+secret:night | GO TO | SLEEP.
+secret:night | THE ORB | IS ASLEEP. | YOU TOO.
+
+# ======================================================================================
+# CLASSIC: the traditional twenty
+# ======================================================================================
+classic yes   | IT IS | CERTAIN
+classic yes   | IT IS | DECIDEDLY | SO
+classic yes   | WITHOUT A | DOUBT
+classic yes   | YES, | DEFINITELY
+classic yes   | YOU MAY | RELY ON IT
+classic yes   | AS I SEE IT, | YES
+classic yes   | MOST | LIKELY
+classic yes   | OUTLOOK | GOOD
+classic yes   | YES
+classic yes   | SIGNS POINT | TO YES
+classic maybe | REPLY HAZY, | TRY AGAIN
+classic maybe | ASK AGAIN | LATER
+classic maybe | BETTER NOT | TELL YOU | NOW
+classic maybe | CANNOT | PREDICT | NOW
+classic maybe | CONCENTRATE | AND ASK | AGAIN
+classic no    | DON'T | COUNT ON IT
+classic no    | MY REPLY | IS NO
+classic no    | MY SOURCES | SAY NO
+classic no    | OUTLOOK | NOT SO | GOOD
+classic no    | VERY | DOUBTFUL
+
+# ======================================================================================
+# ROAST: it still answers, it just teases the question (never the kid)
+# ======================================================================================
+roast yes   | YES. EVEN | YOU CAN'T | BLOW IT
+roast no    | NO. AND | DEEP DOWN | YOU KNEW
+roast maybe | THAT | QUESTION | WAS MID
+roast yes   | YES, BUT | ONLY BY | ACCIDENT
+roast maybe | BRO REALLY | ASKED A | BALL
+roast maybe | ERROR: | QUESTION | TOO EASY
+roast yes   | YES. I'M | AS SHOCKED | AS YOU
+roast no    | LOL. NO.
+roast maybe | TOUCH | GRASS, THEN | ASK
+roast no    | NOPE. GO | DO YOUR | HOMEWORK
+roast no    | MAYBE IF | YOU TRIED | HARDER
+roast no    | THAT'S A | NO, CHAMP
+roast maybe | YOUR ASK | GAVE ME A | HEADACHE
+roast no    | SURE, AND | I'M A | PINEAPPLE
+roast no    | BIG IF | TRUE. IT | ISN'T.
+roast no    | IN YOUR | DREAMS
+roast yes   | YES. STAY | HUMBLE
+roast no    | NAH. NICE | TRY THOUGH
+roast maybe | ASK DAD. | I'M OFF | DUTY
+roast no    | NOT WITH | THAT | ATTITUDE
+roast no    | THE VIBES | SAY NO
+roast no    | NO. BUT | NICE HAIR | TODAY
+roast maybe | -100 AURA | FOR ASKING
+roast no    | THAT'S | NOT IT, | CHIEF
+roast yes   | YES. WRITE | IT DOWN, | GENIUS
+roast yes   | OBVIOUSLY. | NEXT | QUESTION
+roast maybe | ASK WHEN | YOUR ROOM | IS CLEAN
+roast maybe | WOW. EVEN | THE BALL | IS TIRED
+roast yes   | YES. NOW | GO BRAG
+roast no    | PLOT | TWIST: NO
+roast maybe | ASKED AND | IGNORED
+roast yes   | FINE. YES. | HAPPY NOW?
+roast yes   | YES. DON'T | MAKE IT | WEIRD
+roast yes   | YES. TELL | NO ONE I | HELPED
+
+roast:hard  | SHAKING ME | WON'T | HELP YOU
+roast:hard  | RELAX, | DRAMA | LLAMA
+roast:spam  | SAME | QUESTION. | SAME NO.
+roast:night | NO. ALSO | GO TO BED.
+
+# ======================================================================================
+# Mode cards (shown when switching modes)
+# ======================================================================================
+mode:oracle  | ORACLE | MODE
+mode:classic | CLASSIC | MODE
+mode:roast   | ROAST | MODE
+
+# ======================================================================================
+# The SKILL ISSUE special: swipe up and the next answer, in any mode, is this one
+# ======================================================================================
+skill | SKILL | ISSUE
+
+# The card after the rickroll clip (Roast mode, swipe down, then shake)
+rickrolled | YOU GOT | RICKROLLED
