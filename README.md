@@ -1,7 +1,8 @@
 # Magic 8 Ball
 
-A Magic 8 Ball that feels like a gadget, not a toy: ESPHome firmware for the **Waveshare
-ESP32-S3-Touch-AMOLED-1.75** (466 × 466 round AMOLED) plus a 3D-printed 88 mm ball to put it in.
+A Magic 8 Ball that feels like a gadget, not a toy: ESPHome firmware for the
+[**Waveshare ESP32-S3-Touch-AMOLED-1.75**](https://www.waveshare.com/esp32-s3-touch-amoled-1.75.htm)
+(466 × 466 round AMOLED) plus a 3D-printed 88 mm ball to put it in.
 
 Shake it and the ball turns over to its liquid window. A 20-sided die tumbles in the murk,
 rises to the glass, and its face becomes the answer. It has three answer modes, loot-style
@@ -9,9 +10,34 @@ rarity tiers and easter eggs. There are also secret gestures for whoever's holdi
 original synthesized sounds, and battery management with deep sleep and wake-on-pickup.
 Everything runs on the board; no cloud, no app.
 
-![answers](assets/preview.png)
+<p align="center"><img src="case/out/preview-front.png" width="45%" alt="The 88 mm ball, window side"> <img src="case/out/preview-exploded.png" width="45%" alt="The case taken apart: front, board, carrier, battery, speaker, cap"></p>
 
-<p align="center"><img src="case/out/preview-front.png" width="45%"> <img src="case/out/preview-exploded.png" width="45%"></p>
+## Screens
+
+<table>
+<tr>
+<td align="center"><img src="docs/screens/idle.png" width="190" alt="Idle 8-ball"><br><sub>Idle: the 8 rolls as you move it</sub></td>
+<td align="center"><img src="docs/screens/asking.png" width="190" alt="Die rising in the liquid"><br><sub>Shaken: the die rises through the murk</sub></td>
+<td align="center"><img src="docs/screens/answer-common.png" width="190" alt="Common answer"><br><sub>Oracle: a common answer</sub></td>
+<td align="center"><img src="docs/screens/answer-rare.png" width="190" alt="Rare answer"><br><sub>Oracle: RARE</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="docs/screens/answer-legendary.png" width="190" alt="Legendary answer"><br><sub>Oracle: LEGENDARY</sub></td>
+<td align="center"><img src="docs/screens/answer-glitch.png" width="190" alt="Glitch answer"><br><sub>Oracle: GLITCH</sub></td>
+<td align="center"><img src="docs/screens/idle-roast.png" width="190" alt="Roast mode idle ball with a red 8"><br><sub>Roast mode's idle ball</sub></td>
+<td align="center"><img src="docs/screens/answer-roast.png" width="190" alt="Roast answer"><br><sub>Roast: teases the question</sub></td>
+</tr>
+<tr>
+<td align="center"><img src="docs/screens/mode-card.png" width="190" alt="Mode card"><br><sub>Double-tap: switch mode</sub></td>
+<td align="center"><img src="docs/screens/skill-issue.png" width="190" alt="Skill issue answer"><br><sub>Swipe up: the rigged SKILL ISSUE</sub></td>
+<td align="center"><img src="docs/screens/charging.png" width="190" alt="Charging pill on the idle ball"><br><sub>Plugged in: charging</sub></td>
+<td align="center"><img src="docs/screens/low-battery.png" width="190" alt="Low battery pill on the idle ball"><br><sub>Low battery warning</sub></td>
+</tr>
+</table>
+
+These are drawn by `tools/make_screens.py` from the same art, fonts and layout the firmware puts
+on the screen, so they match the device, but they're renders, not photos: the motion, bubbles and
+glow pulses are frozen. Every answer in its triangle: [assets/answers_sheet.png](assets/answers_sheet.png).
 
 ## Features
 
@@ -43,7 +69,7 @@ A single tap waits about 0.4 s before asking, to tell it apart from a double tap
 There's no visible signal: the "8" just sloshes in the swipe direction (or the answer on screen nudges), the way it would if you'd jostled the ball. A rig lasts for one answer. The swipe-up answer is the only SKILL ISSUE in the set; the old rare one became "GIT GUD".
 
 **Sound** (a small speaker on the board's SPK connector)
-- **Asking:** the ball flips over with a whoosh, the liquid churns with bubbles (they keep coming while he keeps shaking), and the die surfaces with a rising shimmer.
+- **Asking:** the ball flips over with a whoosh, the liquid churns with bubbles (they keep coming while you keep shaking), and the die surfaces with a rising shimmer.
 - **Landing**, on the flash of light, depends on rarity: glass chime for common, sparkle duet for RARE, rising fanfare with a sparkle shower for LEGENDARY, bit-crushed stutter for GLITCH, and a playful "wah-wah" for SECRET.
 - **Smaller cues:** a soft whoosh as the answer sinks, a two-note chime on wake, a "power up" blip when plugged in, and a falling two-tone at 15% and 5% battery.
 - **Long-press the screen (1.2 s)** to turn sound off or on; it's remembered. Volume is 75%, dropping to 35% from 22:00 to 07:00.
@@ -74,7 +100,7 @@ Each egg has a 15-ask cooldown and rotates its variants. Before this, a normal h
 
 | Part | Notes |
 |---|---|
-| **Waveshare ESP32-S3-Touch-AMOLED-1.75** | The bare board, not the "-B" version in Waveshare's own case |
+| [**Waveshare ESP32-S3-Touch-AMOLED-1.75**](https://www.waveshare.com/esp32-s3-touch-amoled-1.75.htm) | The bare board, not the "-B" version in Waveshare's own case. Docs, schematic and 3D model: [Waveshare wiki](https://www.waveshare.com/wiki/ESP32-S3-Touch-AMOLED-1.75) |
 | 1S LiPo, 35 × 65 × 9 mm (e.g. LP103665, 3000 mAh), MX1.25 2-pin plug | ⚠️ Check that red goes to **+** on the board's BAT connector: sellers wire these plugs both ways |
 | 20 × 30 × 5 mm enclosed box speaker, MX1.25 2-pin plug | Goes on the SPK connector |
 | microSD card | Optional: only for the video prank. FAT32 (the firmware can format it) |
@@ -102,6 +128,7 @@ are committed, so you don't need to run the generators to build. Change somethin
 ```bash
 python3 tools/make_assets.py     # after editing answers.txt or the art (needs Pillow and numpy)
 python3 tools/make_sounds.py     # after changing a sound (needs numpy)
+python3 tools/make_screens.py    # redraws the screen gallery above (docs/screens/)
 ```
 
 ## Make the answers yours
@@ -136,6 +163,8 @@ is on the other, and the back twist-locks shut with no screws showing. The speak
 a sleeve behind a side grille, and a strap holds the battery, so nothing needs glue or tape. It
 prints without supports on a Bambu Lab A1 mini in about two hours. Parts list, print settings
 and step-by-step assembly: [case/README.md](case/README.md).
+
+<p align="center"><img src="case/out/preview-back.png" width="32%" alt="The back, with the raised 8"> <img src="case/out/preview-speaker.png" width="32%" alt="The speaker grille on the side"> <img src="case/out/preview-section.png" width="32%" alt="Cutaway: board, battery and speaker inside"></p>
 
 ## How it works
 

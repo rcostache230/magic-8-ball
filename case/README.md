@@ -1,6 +1,6 @@
 # Magic 8 Ball shell
 
-An 88 mm ball for the Waveshare ESP32-S3-Touch-AMOLED-1.75: the bare board, not the "-B" version
+An 88 mm ball for the [Waveshare ESP32-S3-Touch-AMOLED-1.75](https://www.waveshare.com/esp32-s3-touch-amoled-1.75.htm): the bare board, not the "-B" version
 that ships in Waveshare's own case. The round AMOLED sits flush in one face as the window. A
 raised **8** on the opposite pole matches the firmware's own "8" (same font, Barlow Black). A
 speaker grille sits on the side. No screws show from outside: the only openings are the grille,
@@ -8,9 +8,9 @@ a USB-C slot and two 2 mm pin holes for PWR and BOOT.
 
 ![front](out/preview-front.png)
 
-**Status:** printed and assembled on a Bambu Lab A1 mini. It prints cleanly, the glass fits its
-bore and the twist lock closes as designed. This version adds a strapped battery cradle and a
-speaker mount; those two are checked in CAD and the slicer but not printed yet (see
+**Status:** printed and assembled on a Bambu Lab A1 mini, with the battery and speaker inside.
+It prints cleanly and everything fits: the glass in its bore, the speaker in its sleeve, the
+strapped battery, and the twist lock closes as designed (see
 [What is proven](#what-is-proven-and-what-isnt-yet)).
 
 | File | What it is |
@@ -179,21 +179,20 @@ Bambu Studio slices both 3MFs with supports off and no warnings.
 
 ## What is proven, and what isn't yet
 
-**Proven by the first print on the A1 mini:**
+**Proven by printing and assembling this version on the A1 mini:** everything fits.
 - the 0.2 mm glass bore;
 - the twist lock at `PRELOAD = 0`;
-- the board-to-carrier-to-frame screw stack;
+- the board-to-carrier-to-frame screw stack, with the frame screws at 55°, 125° and 270°;
+- the speaker sleeve, its latch arm and the grille;
+- the strap slots holding the 35 × 65 × 9 mm cell;
 - the window-down and rim-down print orientations.
 
-**New in this version, checked in CAD and the slicer only:**
-- the strap slots and split ribs;
-- the speaker sleeve, its latch arm and the grille;
-- the carrier's trimmed speaker side and its second lead slot;
-- the frame screws, moved to 55°, 125° and 270° to make room. The pilot holes in the front moved
-  with them, so print the front and the carrier together.
+**Not tested:** other printers, other filaments, and the 5-wall profile (sliced, not printed).
+The first version had its frame screws elsewhere, so a front and a carrier from it don't mix
+with this one: print them together.
 
-If you're on another printer, or want to check the speaker sleeve before a full print, print
-`fit-test-coupons.3mf` first. Delete the pieces you don't need in Bambu Studio.
+If you're on another printer, print `fit-test-coupons.3mf` first. Delete the pieces you don't
+need in Bambu Studio.
 
 | Test | What to look for | If it's off |
 |---|---|---|
