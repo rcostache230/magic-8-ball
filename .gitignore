@@ -10,6 +10,9 @@ media/
 # Local firmware backups
 backup/
 
+# MakerWorld listing drafts (published by hand, not part of the repo)
+makerworld/
+
 # Waveshare's CAD, drawings and schematic: download them yourself (see case/README.md)
 case/vendor/
 
